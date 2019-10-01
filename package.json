@@ -1,0 +1,44 @@
+{
+  "name": "codequiz",
+  "version": "1.0.0",
+  "description": "hacktoberfest 2019 open source project",
+  "main": "index.js",
+  "repository": "git@github.com:gitconnected/codequiz.git",
+  "author": "gitconnected team",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server",
+    "lint": "eslint src -c .eslintrc.json --ext js,jsx",
+    "precommit": "yarn run lint"
+  },
+  "dependencies": {
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.15.1",
+    "husky": "^3.0.7",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0",
+    "prop-types": "^15.7.2",
+    "webpack-dev-server": "^3.8.1"
+  }
+}
