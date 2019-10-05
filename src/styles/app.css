@@ -1,0 +1,43 @@
+body {
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
+    'Lucida Grande', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.code-container {
+  margin: 10px 0;
+  background-color: #30414c;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.traffic {
+  display: inline-block;
+  margin-right: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+}
+
+.traffic_red {
+  background-color: #ff6159;
+}
+
+.traffic_yellow {
+  background-color: #ffbd2e;
+}
+
+.traffic_green {
+  background-color: #28c941;
+}
+
+/* Modified the prism.css to get the same result, keeping the comment
+here is case we change prism.css */
+
+/* code[class*='language-'],
+pre[class*='language-'] {
+  white-space: pre-wrap;
+} */
