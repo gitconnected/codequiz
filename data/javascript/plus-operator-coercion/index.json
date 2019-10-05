@@ -1,0 +1,21 @@
+{
+	"title": "Plus Operator Coercion",
+	"description": "Understand the + operator coercion",
+	"questionFile": "question.js",
+	"difficulty": 1,
+	"correctAnswer": "1 'truefoo' 'bar5'",
+	"answers": [
+		{
+			"answer": "'true0' 'truefoo' 6"
+		},
+		{
+			"answer": "1 'truefoo' 'bar5'"
+		},
+		{
+			"answer": "true 'truefoo' 'bar5'"
+		},
+		{
+			"answer": "true true 'bar5'"
+		}
+	]
+}
