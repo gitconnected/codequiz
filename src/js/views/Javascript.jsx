@@ -6,7 +6,7 @@ import data from '../../../data/javascript/index.json';
 
 const Javascript = () => {
   return (
-    <Container>
+    <Container className="mt-5 mb-3">
       <h2>This is Javascript</h2>
       <div>
         {data.quizzes.map(quizz => (

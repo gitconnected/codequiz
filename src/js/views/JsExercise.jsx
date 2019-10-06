@@ -1,11 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import Prism from 'prismjs';
-import { Button, Container } from 'react-bootstrap';
+import { Alert, Button, Container, Form } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
+
+import Question from '../components/JavaScriptQuestion';
+import JsList from '../../../data/javascript/index.json';
 
 const JsExercise = ({ match }) => {
   const [data, setData] = useState({});
+  const [userAnswer, setUserAnswer] = useState('');
   const [question, setQuestion] = useState('const a = "loading";');
-  console.log(match);
+  const [result, setResult] = useState('');
+  const [nextQuestion, setNextQuestion] = useState({});
+
+  console.log('match', match);
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    if (userAnswer === data.correctAnswer) {
+      setResult('success');
+    } else {
+      setResult('fail');
+    }
+  };
+
+  const handleOnChange = e => {
+    setUserAnswer(e.target.value);
+  };
+
+  useEffect(() => {
+    const index = JsList.quizzes.findIndex(q => {
+      return q.title === data.title;
+    });
+    console.log('JsList', JsList);
+    if (index >= 0 && JsList.quizzes.length > index + 1) {
+      setNextQuestion(JsList.quizzes[index + 1]);
+    }
+    console.log('nextQuestion', nextQuestion);
+  }, [data]);
+
   Prism.highlightAll();
   useEffect(() => {
     import(`../../../data/javascript/${match.params.exercise}/index.json`).then(
@@ -23,38 +58,43 @@ const JsExercise = ({ match }) => {
     });
   }, []);
 
-  const onChange = () => {
-    console.log('changed!');
-  };
   return (
-    <Container>
+    <Container className="mt-5 mb-3">
       <h2>{data.title}</h2>
-      <div className="code-container">
-        <div className="traffic traffic_red" />
-        <div className="traffic traffic_yellow" />
-        <div className="traffic traffic_green" />
-        <pre>
-          <code className="language-javascript">{question}</code>
-        </pre>
-      </div>
-      <form action="">
+      <Question question={question} />
+      <Form className="mt-5 mb-3" action="">
         {data.answers &&
           data.answers.map((a, index) => {
             return (
               <div key={index}>
-                <input
-                  onChange={onChange}
+                <Form.Check
+                  inline
+                  label={a.answer}
+                  onChange={handleOnChange}
                   type="radio"
                   name="answer"
                   value={a.answer}
                 />
-                {a.answer}
                 <br />
               </div>
             );
           })}
-        <Button type="submit">Primary</Button>
-      </form>
+        <Button className="mt-2" type="submit" onClick={onSubmit}>
+          Check
+        </Button>
+      </Form>
+      {result === 'success' && <Alert variant="success">Right Answer!</Alert>}
+      {result === 'fail' && (
+        <Alert variant="warning">Sorry, Wrong Answer!</Alert>
+      )}
+      {nextQuestion.key && (
+        <div>
+          <LinkContainer to="plus-operator-coercion">
+            <Button>{nextQuestion.title}</Button>
+          </LinkContainer>
+          <Link to="/javascript/simple-add">{nextQuestion.title}</Link>
+        </div>
+      )}
     </Container>
   );
 };
