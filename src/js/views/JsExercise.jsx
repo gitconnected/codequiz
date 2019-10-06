@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Prism from 'prismjs';
 import { Alert, Button, Container, Form } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Link } from 'react-router-dom';
 
 import Question from '../components/JavaScriptQuestion';
 import JsList from '../../../data/javascript/index.json';
@@ -31,15 +30,19 @@ const JsExercise = ({ match }) => {
   };
 
   useEffect(() => {
-    const index = JsList.quizzes.findIndex(q => {
+    // Find the index of the current question in the list
+    const indexCurrent = JsList.quizzes.findIndex(q => {
       return q.title === data.title;
     });
     console.log('JsList', JsList);
-    if (index >= 0 && JsList.quizzes.length > index + 1) {
-      setNextQuestion(JsList.quizzes[index + 1]);
+    // check if there is a next question, and update state
+    if (indexCurrent >= 0 && JsList.quizzes.length > indexCurrent + 1) {
+      setNextQuestion(JsList.quizzes[indexCurrent + 1]);
+    } else if (indexCurrent >= 0 && JsList.quizzes.length <= indexCurrent + 1) {
+      setNextQuestion({});
     }
     console.log('nextQuestion', nextQuestion);
-  }, [data]);
+  }, [data, match]);
 
   Prism.highlightAll();
   useEffect(() => {
@@ -56,7 +59,7 @@ const JsExercise = ({ match }) => {
       Prism.highlightAll();
       console.log('line 20', js.default, typeof js.default);
     });
-  }, []);
+  }, [match]);
 
   return (
     <Container className="mt-5 mb-3">
@@ -89,10 +92,10 @@ const JsExercise = ({ match }) => {
       )}
       {nextQuestion.key && (
         <div>
-          <LinkContainer to="plus-operator-coercion">
+          <p>Next Question: </p>
+          <LinkContainer to={`/javascript/${nextQuestion.key}`}>
             <Button>{nextQuestion.title}</Button>
           </LinkContainer>
-          <Link to="/javascript/simple-add">{nextQuestion.title}</Link>
         </div>
       )}
     </Container>
