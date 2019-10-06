@@ -7,6 +7,7 @@
   "author": "gitconnected team",
   "license": "MIT",
   "scripts": {
+    "start": "node server.js",
     "build": "webpack",
     "dev": "webpack-dev-server",
     "lint": "eslint src -c .eslintrc.json --ext js,jsx",
@@ -15,6 +16,7 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "css-loader": "^3.2.0",
+    "express": "^4.17.1",
     "json-loader": "^0.5.7",
     "prismjs": "^1.17.1",
     "react": "^16.10.1",
