@@ -18,6 +18,10 @@
   "rules": {
     "no-console": "off",
     "func-names": 0,
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "no-absolute-path": "off",
+    "react/prop-types": 0,
+    "prefer-template": "off",
+    "react/no-array-index-key": "off"
   }
 }

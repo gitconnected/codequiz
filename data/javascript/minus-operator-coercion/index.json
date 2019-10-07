@@ -1,0 +1,21 @@
+{
+	"title": "Minus Operator Coercion",
+	"description": "Understand the - operator coercion",
+	"questionFile": "question.js",
+	"difficulty": 1,
+	"correctAnswer": "1 NaN 2",
+	"answers": [
+		{
+			"answer": "NaN NaN NaN"
+		},
+		{
+			"answer": "undefined undefined 2"
+		},
+		{
+			"answer": "NaN NaN 2"
+		},
+		{
+			"answer": "1 NaN 2"
+		}
+	]
+}
