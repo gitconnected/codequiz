@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Prism from 'prismjs';
-import { Alert, Button, Container, Form } from 'react-bootstrap';
+import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 import Question from '../components/JavaScriptQuestion';
@@ -28,6 +28,12 @@ const JsExercise = ({ match }) => {
   const handleOnChange = e => {
     setUserAnswer(e.target.value);
   };
+
+  useEffect(() => {
+    /* if we have move to a new exercise, match object from react router will be different,
+       so we can trigger a clean up of the state */
+    setResult('');
+  }, [match]);
 
   useEffect(() => {
     // Find the index of the current question in the list
@@ -64,39 +70,62 @@ const JsExercise = ({ match }) => {
   return (
     <Container className="mt-5 mb-3">
       <h2>{data.title}</h2>
+      <p>{data.description}</p>
       <Question question={question} />
-      <Form className="mt-5 mb-3" action="">
-        {data.answers &&
-          data.answers.map((a, index) => {
-            return (
-              <div key={index}>
-                <Form.Check
-                  inline
-                  label={a.answer}
-                  onChange={handleOnChange}
-                  type="radio"
-                  name="answer"
-                  value={a.answer}
-                />
-                <br />
-              </div>
-            );
-          })}
-        <Button className="mt-2" type="submit" onClick={onSubmit}>
-          Check
-        </Button>
-      </Form>
-      {result === 'success' && <Alert variant="success">Right Answer!</Alert>}
-      {result === 'fail' && (
-        <Alert variant="warning">Sorry, Wrong Answer!</Alert>
-      )}
-      {nextQuestion.key && (
-        <div>
-          <p>Next Question: </p>
-          <LinkContainer to={`/javascript/${nextQuestion.key}`}>
-            <Button>{nextQuestion.title}</Button>
-          </LinkContainer>
-        </div>
+      <Row>
+        <Col xs={12} md={6} className="mt-5 mb-3">
+          <Form action="">
+            {data.answers &&
+              data.answers.map((a, index) => {
+                return (
+                  <div key={index}>
+                    <Form.Check
+                      inline
+                      label={a.answer}
+                      onChange={handleOnChange}
+                      type="radio"
+                      name="answer"
+                      value={a.answer}
+                      disabled={result !== ''}
+                    />
+                    <br />
+                  </div>
+                );
+              })}
+            {userAnswer !== '' && !result && (
+              <Button className="mt-2" type="submit" onClick={onSubmit}>
+                Check Yourself
+              </Button>
+            )}
+          </Form>
+        </Col>
+        <Col xs={12} md={6} className="mt-5 mb-3">
+          {result === 'success' && (
+            <Alert variant="success">Right Answer!</Alert>
+          )}
+          {result === 'fail' && (
+            <Alert variant="warning">
+              Sorry, Wrong Answer! The right answer was:{' '}
+              <strong style={{ fontWeight: 700 }}>{data.correctAnswer}</strong>
+            </Alert>
+          )}
+          {nextQuestion.key && result && (
+            <div>
+              <p>Next Question: </p>
+              <LinkContainer to={`/javascript/${nextQuestion.key}`}>
+                <Button>{nextQuestion.title}</Button>
+              </LinkContainer>
+            </div>
+          )}
+        </Col>
+      </Row>
+      {result && (
+        <Row className="mt-5 mb-3">
+          <Col>
+            <h5>Explanation:</h5>
+            <p>{data.explanation}</p>
+          </Col>
+        </Row>
       )}
     </Container>
   );
