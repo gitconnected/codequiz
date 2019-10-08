@@ -1,21 +1,22 @@
 {
-	"title": "Simple Add",
-	"description": "Solve a simple addition",
-	"questionFile": "question.js",
-	"difficulty": 1,
-	"correctAnswer": "5",
-	"answers": [
-		{
-			"answer": "3"
-		},
-		{
-			"answer": "4"
-		},
-		{
-			"answer": "5"
-		},
-		{
-			"answer": "6"
-		}
-	]
+  "title": "Simple Add",
+  "description": "Solve a simple addition",
+  "questionFile": "question.js",
+  "difficulty": 1,
+  "correctAnswer": "5",
+  "explanation": "Arrow function is an other way to write a function, simpleAdd(2,3) returns the sum of 2 and 3",
+  "answers": [
+    {
+      "answer": "3"
+    },
+    {
+      "answer": "4"
+    },
+    {
+      "answer": "5"
+    },
+    {
+      "answer": "6"
+    }
+  ]
 }

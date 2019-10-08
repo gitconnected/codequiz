@@ -22,6 +22,8 @@
     "no-absolute-path": "off",
     "react/prop-types": 0,
     "prefer-template": "off",
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
+    "react/jsx-boolean-value": "off",
+    "react/jsx-curly-brace-presence": "off"
   }
 }
