@@ -12,7 +12,9 @@ const Javascript = () => {
   const curriculumProgress = JSON.parse(
     localStorage.getItem('curriculumProgress'),
   );
+
   const showCurriculumProgress = key => {
+    if (!curriculumProgress) return '';
     if (curriculumProgress[key] === 'success') {
       return <FontAwesomeIcon icon={faCheck} color="green" />;
     }
@@ -21,6 +23,7 @@ const Javascript = () => {
     }
     return '';
   };
+
   return (
     <Container className="mt-5 mb-3">
       <h2>This is Javascript</h2>
