@@ -1,7 +1,7 @@
 {
   "title": "Plus Operator Coercion",
+  "key": "plus-operator-coercion",
   "description": "Understand the + operator implicit type coercion",
-  "questionFile": "question.js",
   "difficulty": 3,
   "explanation": "Since JavaScript is a weakly-typed language, values can also be converted between different types automatically, and it is called implicit type coercion. The + here is the arithmetic addition operator. If the operands (the left and right of the +) are booleans or numbers, it will coerce to numbers (true becomes 1, false becomes 0). If any of the operands is a string, it will do string concatenation.",
   "correctAnswer": "1 'truefoo' 'bar5'",

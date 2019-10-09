@@ -9,20 +9,27 @@ import JsList from '../../../data/javascript/index.json';
 const JsExercise = ({ match }) => {
   const [data, setData] = useState({});
   const [userAnswer, setUserAnswer] = useState('');
-  const [question, setQuestion] = useState('const a = "loading";');
+  const [question, setQuestion] = useState('');
   const [result, setResult] = useState('');
   const [nextQuestion, setNextQuestion] = useState({});
 
-  console.log('match', match);
-
   const onSubmit = e => {
     e.preventDefault();
-
+    let curriculumProgress = JSON.parse(
+      localStorage.getItem('curriculumProgress'),
+    );
     if (userAnswer === data.correctAnswer) {
       setResult('success');
+      curriculumProgress = { ...curriculumProgress, [data.key]: 'success' };
     } else {
       setResult('fail');
+      curriculumProgress = { ...curriculumProgress, [data.key]: 'fail' };
     }
+    localStorage.setItem(
+      'curriculumProgress',
+      JSON.stringify(curriculumProgress),
+    );
+    console.log(curriculumProgress);
   };
 
   const handleOnChange = e => {
@@ -33,6 +40,7 @@ const JsExercise = ({ match }) => {
     /* if we have move to a new exercise, match object from react router will be different,
        so we can trigger a clean up of the state */
     setResult('');
+    setUserAnswer('');
   }, [match]);
 
   useEffect(() => {
@@ -40,14 +48,12 @@ const JsExercise = ({ match }) => {
     const indexCurrent = JsList.quizzes.findIndex(q => {
       return q.title === data.title;
     });
-    console.log('JsList', JsList);
     // check if there is a next question, and update state
     if (indexCurrent >= 0 && JsList.quizzes.length > indexCurrent + 1) {
       setNextQuestion(JsList.quizzes[indexCurrent + 1]);
     } else if (indexCurrent >= 0 && JsList.quizzes.length <= indexCurrent + 1) {
       setNextQuestion({});
     }
-    console.log('nextQuestion', nextQuestion);
   }, [data, match]);
 
   Prism.highlightAll();
@@ -55,7 +61,6 @@ const JsExercise = ({ match }) => {
     import(`../../../data/javascript/${match.params.exercise}/index.json`).then(
       json => {
         setData(json);
-        console.log(json);
       },
     );
     import(
@@ -63,7 +68,6 @@ const JsExercise = ({ match }) => {
     ).then(js => {
       setQuestion(js.default);
       Prism.highlightAll();
-      console.log('line 20', js.default, typeof js.default);
     });
   }, [match]);
 
@@ -86,6 +90,7 @@ const JsExercise = ({ match }) => {
                       type="radio"
                       name="answer"
                       value={a.answer}
+                      checked={a.answer === userAnswer}
                       disabled={result !== ''}
                     />
                     <br />

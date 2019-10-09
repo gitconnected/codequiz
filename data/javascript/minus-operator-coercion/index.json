@@ -1,7 +1,7 @@
 {
   "title": "Minus Operator Coercion",
+  "key": "minus-operator-coercion",
   "description": "Understand the - operator implicit type coercion",
-  "questionFile": "question.js",
   "difficulty": 3,
   "explanation": "The - here is the arithmetic substraction operator. If the operands (the left and right of the -) are booleans or numbers or strings, it will coerce to numbers (true becomes 1, false becomes 0). If the operands are not valid numbers or cannot be coerce to numbers, it will result in NaN",
   "correctAnswer": "1 NaN 2",
