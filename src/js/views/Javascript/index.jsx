@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Col, Container, ProgressBar, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
@@ -24,9 +24,36 @@ const Javascript = () => {
     return '';
   };
 
+  const calculateProgressBar = () => {
+    let succeededQuizzes;
+    if (curriculumProgress) {
+      succeededQuizzes = Object.keys(curriculumProgress).filter(
+        key => curriculumProgress[key] === 'success',
+      ).length;
+    } else {
+      succeededQuizzes = 0;
+    }
+    return [
+      `${succeededQuizzes}/${data.quizzes.length}`,
+      (succeededQuizzes * 100) / data.quizzes.length,
+    ];
+  };
+
   return (
     <Container className="mt-5 mb-3">
       <h2>This is Javascript</h2>
+      <Row className="mt-3 mb-3">
+        <Col md={12} lg={8}>
+          <h5>Your Progress:</h5>
+          <ProgressBar
+            animated
+            striped
+            variant="success"
+            label={calculateProgressBar()[0]}
+            now={calculateProgressBar()[1]}
+          />
+        </Col>
+      </Row>
       <div>
         {data.quizzes.map(quizz => (
           <div key={quizz.key}>

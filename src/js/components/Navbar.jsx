@@ -7,7 +7,7 @@ const NavbarComponent = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Link to="/">
-        <Navbar.Brand>Code-Quiz</Navbar.Brand>
+        <Navbar.Brand>CodeQuizz</Navbar.Brand>
       </Link>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
