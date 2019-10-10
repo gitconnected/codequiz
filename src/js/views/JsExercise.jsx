@@ -72,12 +72,12 @@ const JsExercise = ({ match }) => {
   }, [match]);
 
   return (
-    <Container className="mt-5 mb-3">
+    <Container className="mt-3 mb-3">
       <h2>{data.title}</h2>
       <p>{data.description}</p>
       <Question question={question} />
       <Row>
-        <Col xs={12} md={6} className="mt-5 mb-3">
+        <Col xs={12} md={6} className="mt-3 mb-3">
           <Form action="">
             {data.answers &&
               data.answers.map((a, index) => {
@@ -104,7 +104,7 @@ const JsExercise = ({ match }) => {
             )}
           </Form>
         </Col>
-        <Col xs={12} md={6} className="mt-5 mb-3">
+        <Col xs={12} md={6} className="mt-3 mb-3">
           {result === 'success' && (
             <Alert variant="success">Right Answer!</Alert>
           )}
@@ -125,7 +125,7 @@ const JsExercise = ({ match }) => {
         </Col>
       </Row>
       {result && (
-        <Row className="mt-5 mb-3">
+        <Row className="mt-3 mb-3">
           <Col>
             <h5>Explanation:</h5>
             <p>{data.explanation}</p>
