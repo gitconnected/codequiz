@@ -1,0 +1,22 @@
+{
+  "title": "Number Explicit Type Conversion",
+  "key": "number-explicit-type-conversion",
+  "description": "Understand the Number explicit type conversion",
+  "difficulty": 3,
+  "explanation": "The Number JavaScript object is a wrapper object allowing you to work with numerical values. In a non-constructor context (i.e., without the new operator), Number can be used to perform a type conversion. If the argument cannot be converted into a number, it returns NaN. NOTE: typof(NaN) is 'number' !!",
+  "correctAnswer": "5 NaN 'number'",
+  "answers": [
+    {
+      "answer": "5 NaN 'number'"
+    },
+    {
+      "answer": "'5' NaN NaN"
+    },
+    {
+      "answer": "5 NaN 'string'"
+    },
+    {
+      "answer": "5 NaN NaN"
+    }
+  ]
+}

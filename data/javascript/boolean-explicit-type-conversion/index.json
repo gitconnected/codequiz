@@ -1,0 +1,22 @@
+{
+  "title": "Boolean Explicit Type Conversion",
+  "key": "boolean-explicit-type-conversion",
+  "description": "Understand the Boolean explicit type conversion",
+  "difficulty": 3,
+  "explanation": "The conversion rules for Boolean are: Values that are intuitively “empty”, like 0, an empty string, null, undefined, and NaN, become false. anything else becomes true",
+  "correctAnswer": "false true true true",
+  "answers": [
+    {
+      "answer": "false false false false"
+    },
+    {
+      "answer": "false false false true"
+    },
+    {
+      "answer": "false false true true"
+    },
+    {
+      "answer": "false true true true"
+    }
+  ]
+}
