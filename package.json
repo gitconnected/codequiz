@@ -10,7 +10,7 @@
     "start": "node server.js",
     "build": "webpack",
     "dev": "webpack-dev-server",
-    "test": "yarn run cypress run",
+    "test": "yarn dev & wait-on http://localhost:8080 & yarn run cypress run",
     "lint": "eslint src -c .eslintrc.json --ext js,jsx",
     "precommit": "yarn run lint"
   },
