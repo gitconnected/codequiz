@@ -1,6 +1,6 @@
 describe('Our Url ', function() {
   it('opens', function() {
-    cy.visit('https://lucid-franklin-367702.netlify.com/');
+    cy.visit('http://localhost:8080/');
     cy.contains('Javascript').click();
     cy.url().should('include', '/javascript');
     cy.contains('Simple Add').click();
