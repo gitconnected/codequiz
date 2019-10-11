@@ -20,6 +20,10 @@
     {
       "title": "Boolean Explicit Type Conversion",
       "key": "boolean-explicit-type-conversion"
+    },
+    {
+      "title": "Comparison Operator",
+      "key": "comparison-operator"
     }
   ]
 }
