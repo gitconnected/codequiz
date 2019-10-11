@@ -11,8 +11,7 @@
     "build": "webpack",
     "dev": "webpack-dev-server",
     "test": "yarn dev & wait-on http://localhost:8080 & yarn run cypress run",
-    "lint": "eslint src -c .eslintrc.json --ext js,jsx",
-    "precommit": "yarn run lint"
+    "lint": "eslint src -c .eslintrc.json --ext js,jsx"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
@@ -58,5 +57,10 @@
     "prettier-eslint": "^9.0.0",
     "raw-loader": "^3.1.0",
     "webpack-dev-server": "^3.8.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run lint"
+    }
   }
 }
