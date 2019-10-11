@@ -1,0 +1,22 @@
+{
+  "title": "Comparison Operator",
+  "key": "comparison-operator",
+  "description": "Understand the comparison operators",
+  "difficulty": 3,
+  "explanation": "When comparing values of different types, JavaScript converts the values to numbers. '0' becomes 0, false becomes 0, true becomes 1, '' becomes 0, 'foo' becomes NaN (note: NaN is not equal to anything, including itself). If 2 strings are compared, it will use dictionnary order based on Unicode.",
+  "correctAnswer": "true true true true",
+  "answers": [
+    {
+      "answer": "true true true true"
+    },
+    {
+      "answer": "false false false true"
+    },
+    {
+      "answer": "false false true true"
+    },
+    {
+      "answer": "false true true true"
+    }
+  ]
+}
