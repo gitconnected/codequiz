@@ -74,12 +74,6 @@ const JsExercise = ({ match }) => {
 
   useEffect(() => {
     // preload next question
-    console.log(
-      'match',
-      match.params.exercise,
-      'next question',
-      nextQuestion.key,
-    );
     import(
       `!raw-loader! ../../../data/javascript/${nextQuestion.key}/question.js`
     );
