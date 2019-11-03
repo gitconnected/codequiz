@@ -57,6 +57,7 @@ const JsExercise = ({ match }) => {
   }, [data, match]);
 
   Prism.highlightAll();
+
   useEffect(() => {
     import(`../../../data/javascript/${match.params.exercise}/index.json`).then(
       json => {
@@ -70,6 +71,20 @@ const JsExercise = ({ match }) => {
       Prism.highlightAll();
     });
   }, [match]);
+
+  useEffect(() => {
+    // preload next question
+    console.log(
+      'match',
+      match.params.exercise,
+      'next question',
+      nextQuestion.key,
+    );
+    import(
+      `!raw-loader! ../../../data/javascript/${nextQuestion.key}/question.js`
+    );
+    import(`../../../data/javascript/${nextQuestion.key}/index.json`);
+  }, [match, nextQuestion]);
 
   return (
     <Container className="mt-3 mb-3">
