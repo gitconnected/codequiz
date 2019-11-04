@@ -74,11 +74,13 @@ const JsExercise = ({ match }) => {
 
   useEffect(() => {
     // preload next question
-    import(
-      `!raw-loader! ../../../data/javascript/${nextQuestion.key}/question.js`
-    );
-    import(`../../../data/javascript/${nextQuestion.key}/index.json`);
-  }, [match, nextQuestion]);
+    if (nextQuestion.key) {
+      import(
+        `!raw-loader! ../../../data/javascript/${nextQuestion.key}/question.js`
+      );
+      import(`../../../data/javascript/${nextQuestion.key}/index.json`);
+    }
+  }, [nextQuestion]);
 
   return (
     <Container className="mt-3 mb-3">

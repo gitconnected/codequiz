@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Container, ProgressBar, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,7 +8,26 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import data from '../../../../data/javascript/index.json';
 import './javascript.css';
 
+const DELAY_LOAD = 2000;
+
 const Javascript = () => {
+  const [delayFinish, setDelay] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setDelay(true);
+    }, DELAY_LOAD);
+  });
+
+  useEffect(() => {
+    if (delayFinish) {
+      data.quizzes.forEach(quiz => {
+        // Note:  we preload all questions for now
+        import(`../../../../data/javascript/${quiz.key}/index.json`);
+        import(`!raw-loader! ../../../data/javascript/${quiz.key}/question.js`);
+      });
+    }
+  }, [delayFinish]);
+
   const curriculumProgress = JSON.parse(
     localStorage.getItem('curriculumProgress'),
   );
