@@ -1,0 +1,22 @@
+{
+  "title": "Scope Var",
+  "key": "scope-var",
+  "description": "Understand the var keyword scoping",
+  "difficulty": 3,
+  "explanation": "var is scoped to functions but is not block scoped, like in a for loop.",
+  "correctAnswer": "5 4 undefined",
+  "answers": [
+    {
+      "answer": "undefined 4 undefined"
+    },
+    {
+      "answer": "5 4 undefined"
+    },
+    {
+      "answer": "Uncaught ReferenceError: baz is not defined"
+    },
+    {
+      "answer": "4 4 undefined"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Const Keyword Continued",
+  "key": "const-keyword-continued",
+  "description": "Const keyword assigned an object",
+  "difficulty": 2,
+  "explanation": "const keyword is used to declare a constant. Objects are not immutable though, the value of the const hasn't change because the object was mutated, the constant still points to the same object.",
+  "correctAnswer": "'world'",
+  "answers": [
+    {
+      "answer": "Uncaught ReferenceError: foo is not defined"
+    },
+    {
+      "answer": "'hello'"
+    },
+    {
+      "answer": "'world'"
+    },
+    {
+      "answer": "Uncaught TypeError: Assignment to constant variable."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Const Keyword",
+  "key": "const-keyword",
+  "description": "Const Keyword",
+  "difficulty": 2,
+  "explanation": "const keyword is used to declare a constant, it can't be initiated without a value. It can't be reassigned a different value.",
+  "correctAnswer": "Uncaught TypeError: Assignment to constant variable.",
+  "answers": [
+    {
+      "answer": "Uncaught ReferenceError: foo is not defined"
+    },
+    {
+      "answer": "5"
+    },
+    {
+      "answer": "'hello'"
+    },
+    {
+      "answer": "Uncaught TypeError: Assignment to constant variable."
+    }
+  ]
+}
