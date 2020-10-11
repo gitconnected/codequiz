@@ -1,0 +1,22 @@
+{
+  "title": "Let Variable",
+  "key": "let-variable",
+  "description": "Let Variable",
+  "difficulty": 1,
+  "explanation": "let keyword is used to declare a variable, it is initiated with a value of undefined. it allows you to change the value of the variable.",
+  "correctAnswer": "undefined 'fuzz'",
+  "answers": [
+    {
+      "answer": "Uncaught ReferenceError: foo is not defined"
+    },
+    {
+      "answer": "undefined 'fuzz'"
+    },
+    {
+      "answer": "undefined 6"
+    },
+    {
+      "answer": "null 'fuzz'"
+    }
+  ]
+}

@@ -24,6 +24,22 @@
     {
       "title": "Comparison Operator",
       "key": "comparison-operator"
+    },
+    {
+      "title": "Let Variable",
+      "key": "let-variable"
+    },
+    {
+      "title": "Const Keyword",
+      "key": "const-keyword"
+    },
+    {
+      "title": "Const Keyword Continued",
+      "key": "const-keyword-continued"
+    },
+    {
+      "title": "Scope Var",
+      "key": "scope-var"
     }
   ]
 }

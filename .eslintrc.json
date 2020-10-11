@@ -32,6 +32,11 @@
     "react/jsx-curly-brace-presence": "off",
     "no-unused-expressions": 0,
     "chai-friendly/no-unused-expressions": "off",
-    "eqeqeq": "off"
+    "eqeqeq": "off",
+    "no-var": 0,
+    "vars-on-top": "off",
+    "no-plusplus": "off",
+    "block-scoped-var": "off",
+    "no-use-before-define": "off"
   }
 }
